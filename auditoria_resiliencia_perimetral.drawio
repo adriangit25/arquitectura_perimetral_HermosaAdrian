@@ -41,7 +41,7 @@
           <mxGeometry height="130" width="200" x="275" y="385" as="geometry" />
         </mxCell>
         <mxCell id="ips_label_top" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontStyle=2;fontColor=#6D28D9;" value="IPS posicionado inline&#xa;entre Internet y DMZ" vertex="1">
-          <mxGeometry height="30" width="220" x="265" y="355" as="geometry" />
+          <mxGeometry height="30" width="220" x="265" y="360" as="geometry" />
         </mxCell>
         <mxCell id="proto_tls_entry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=2;fontSize=9;fontStyle=1;fontColor=#065F46;" value="TLS 1.3&#xa;(en tránsito)" vertex="1">
           <mxGeometry height="40" width="80" x="200" y="290" as="geometry" />
