@@ -1,0 +1,399 @@
+<mxfile host="app.diagrams.net" modified="2026-06-08" agent="Claude AI" version="24.0.0" type="device">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PLANO 1: ARQUITECTURA PERIMETRAL LÓGICA Y SEGURIDAD EN CAPAS
+       Secciones 4.1.2 y 4.1.3 — Auditoría Informática
+  ═══════════════════════════════════════════════════════════ -->
+  <diagram id="plano1-seguridad" name="Plano 1 — Arquitectura Perimetral">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ══ MARCA DE AGUA (reemplazar con tus datos reales) ══ -->
+        <mxCell id="watermark" value="NOMBRES COMPLETOS APELLIDOS&#xa;CÉDULA: 000-000-000-0&#xa;FECHA: 08/06/2026&#xa;AUDITORÍA INFORMÁTICA" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=28;fontStyle=1;fontColor=#CCCCCC;opacity=15;rotation=-30;" parent="1" vertex="1">
+          <mxGeometry x="400" y="300" width="800" height="300" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ TÍTULO PRINCIPAL ══ -->
+        <mxCell id="titulo_p1" value="PLANO 1: ARQUITECTURA PERIMETRAL LÓGICA Y SEGURIDAD EN CAPAS&#xa;Centro de Cómputo Institucional — Defensa en Profundidad | ISO 27001 Control A.13" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;fontColor=#1E3A5F;fillColor=#E8F4FD;strokeColor=#2563EB;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="20" width="1560" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             ZONA 0: INTERNET / NUBE PÚBLICA
+        ══════════════════════════════════════════ -->
+        <mxCell id="zona0_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#93C5FD;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="90" width="200" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="zona0_label" value="ZONA 0&#xa;INTERNET / NUBE&#xa;PÚBLICA" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontStyle=1;fontColor=#1D4ED8;" parent="1" vertex="1">
+          <mxGeometry x="50" y="95" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Nube Internet -->
+        <mxCell id="internet" value="☁ INTERNET&#xa;(Tráfico externo)&#xa;&#xa;• HTTP/HTTPS&#xa;• Usuarios externos&#xa;• Atacantes potenciales" style="shape=mxgraph.cisco.sites.generic_building;html=1;pointerEvents=1;dashed=0;fillColor=#BFDBFE;strokeColor=#1D4ED8;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="70" y="155" width="140" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Atacante (fuerza bruta) -->
+        <mxCell id="atacante" value="⚠ ATACANTE&#xa;Fuerza Bruta / Scan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=2;fontSize=9;fontStyle=1;fontColor=#991B1B;" parent="1" vertex="1">
+          <mxGeometry x="70" y="370" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="ataque_arrow" value="Intento de intrusión" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#DC2626;strokeWidth=2;dashed=1;fontSize=8;fontColor=#DC2626;" parent="1" source="atacante" target="internet" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ FLECHA: INTERNET → NGFW ══ -->
+        <mxCell id="arrow_inet_ngfw" value="Todo el tráfico&#xa;entra por aquí" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563EB;strokeWidth=3;fontSize=8;fontColor=#1D4ED8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="internet" target="ngfw_box" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             NGFW — FIREWALL DE SIGUIENTE GENERACIÓN
+        ══════════════════════════════════════════ -->
+        <mxCell id="ngfw_zone" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#F97316;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="260" y="90" width="230" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="ngfw_zone_label" value="NGFW&#xa;Firewall de Siguiente Generación" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontStyle=1;fontColor=#C2410C;" parent="1" vertex="1">
+          <mxGeometry x="265" y="95" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ngfw_box" value="🔥 NGFW&#xa;(Next-Gen Firewall)&#xa;&#xa;• Inspección DPI&#xa;• Control de aplicaciones&#xa;• Políticas de acceso&#xa;• Principio mínimo privilegio&#xa;• Reglas: DENY por defecto&#xa;• Solo permite puertos 443/80&#xa;  hacia DMZ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;strokeWidth=2;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="275" y="145" width="200" height="220" as="geometry"/>
+        </mxCell>
+
+        <!-- IPS inline con NGFW -->
+        <mxCell id="ips_box" value="🛡 IPS&#xa;(Sistema Prevención Intrusos)&#xa;&#xa;• Modo INLINE&#xa;• Detección firma y anomalía&#xa;• Bloqueo fuerza bruta&#xa;• Alerta SIEM en tiempo real&#xa;• Snort / Suricata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E9D5FF;strokeColor=#7C3AED;strokeWidth=2;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="275" y="385" width="200" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ips_label_top" value="IPS posicionado inline&#xa;entre Internet y DMZ" style="text;html=1;align=center;verticalAlign=middle;fontSize=8;fontStyle=2;fontColor=#6D28D9;" parent="1" vertex="1">
+          <mxGeometry x="265" y="355" width="220" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Protocolo en tránsito NGFW entrada -->
+        <mxCell id="proto_tls_entry" value="TLS 1.3&#xa;(en tránsito)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=2;fontSize=9;fontStyle=1;fontColor=#065F46;" parent="1" vertex="1">
+          <mxGeometry x="200" y="290" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ FLECHA: NGFW → DMZ ══ -->
+        <mxCell id="arrow_ngfw_dmz" value="Solo tráfico&#xa;autorizado" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#059669;strokeWidth=3;fontSize=8;fontColor=#065F46;" parent="1" source="ngfw_box" target="webserver" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             ZONA DMZ — ZONA DESMILITARIZADA
+        ══════════════════════════════════════════ -->
+        <mxCell id="dmz_zone" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D97706;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="510" y="90" width="320" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="dmz_label" value="ZONA DMZ — DESMILITARIZADA&#xa;Aislada de LAN interna | Switch exclusivo" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontStyle=1;fontColor=#92400E;fillColor=#FDE68A;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="95" width="300" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Switch DMZ (exclusivo, no compartido) -->
+        <mxCell id="switch_dmz" value="🔀 SWITCH DMZ&#xa;(Exclusivo — no comparte&#xa;infraestructura con LAN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="580" y="145" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Servidor Web en DMZ -->
+        <mxCell id="webserver" value="🌐 SERVIDOR WEB&#xa;(Zona DMZ)&#xa;&#xa;• Apache / Nginx&#xa;• Portal institucional&#xa;• Servicios REST API&#xa;• Solo puertos 80/443&#xa;• WAF integrado&#xa;&#xa;Datos en tránsito:&#xa;TLS 1.3 ✓&#xa;&#xa;Sin acceso directo a BD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF08A;strokeColor=#CA8A04;strokeWidth=2;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="540" y="240" width="200" height="270" as="geometry"/>
+        </mxCell>
+
+        <!-- IPS2 entre DMZ y LAN -->
+        <mxCell id="ips2_box" value="🛡 IPS #2&#xa;DMZ → LAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;strokeWidth=2;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="760" y="270" width="60" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Etiqueta protocolo TLS DMZ-LAN -->
+        <mxCell id="proto_tls_dmz" value="TLS 1.3&#xa;Mutual Auth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=2;fontSize=8;fontStyle=1;fontColor=#065F46;" parent="1" vertex="1">
+          <mxGeometry x="760" y="370" width="60" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ FLECHA: Web → IPS2 → LAN ══ -->
+        <mxCell id="arrow_dmz_lan" value="Solo queries&#xa;autorizadas" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7C3AED;strokeWidth=2;dashed=0;fontSize=8;fontColor=#6D28D9;" parent="1" source="webserver" target="ips2_box" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow_ips2_lan" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7C3AED;strokeWidth=2;" parent="1" source="ips2_box" target="db_server" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             ZONA LAN INTERNA PROTEGIDA
+        ══════════════════════════════════════════ -->
+        <mxCell id="lan_zone" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="850" y="90" width="370" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="lan_label" value="LAN INTERNA PROTEGIDA&#xa;Segmento más restringido | Acceso mínimo privilegio" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontStyle=1;fontColor=#166534;fillColor=#BBF7D0;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="860" y="95" width="350" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Switch LAN interno (exclusivo) -->
+        <mxCell id="switch_lan" value="🔀 SWITCH LAN INTERNA&#xa;(Exclusivo — VLAN segregada)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=2;fontSize=9;" parent="1" vertex="1">
+          <mxGeometry x="880" y="145" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Servidor BD Académica/Financiera -->
+        <mxCell id="db_server" value="🗄 BD ACADÉMICA / FINANCIERA&#xa;(LAN Interna Protegida)&#xa;&#xa;• PostgreSQL / Oracle&#xa;• Sin exposición directa&#xa;• Solo acepta queries desde&#xa;  servidor web (IP whitelisting)&#xa;&#xa;Datos EN REPOSO:&#xa;AES-256 / TDE ✓&#xa;Cifrado de volumen ✓&#xa;&#xa;Puerto 5432 solo desde&#xa;subnet del servidor web" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBF7D0;strokeColor=#15803D;strokeWidth=2;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="870" y="220" width="220" height="290" as="geometry"/>
+        </mxCell>
+
+        <!-- Cifrado en reposo etiqueta -->
+        <mxCell id="reposo_label" value="🔒 AES-256&#xa;Datos en reposo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#059669;strokeWidth=2;fontSize=9;fontStyle=1;fontColor=#065F46;" parent="1" vertex="1">
+          <mxGeometry x="1100" y="280" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="reposo_arrow" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#059669;strokeWidth=1;dashed=1;" parent="1" source="reposo_label" target="db_server" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Clientes internos -->
+        <mxCell id="clientes_internos" value="💻 CLIENTES INTERNOS&#xa;Personal administrativo&#xa;Docentes / Directivos&#xa;&#xa;• Autenticados vía LDAP/AD&#xa;• VPN para acceso remoto" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=1;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="1110" y="380" width="90" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow_clients" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#16A34A;strokeWidth=1;dashed=1;" parent="1" source="clientes_internos" target="switch_lan" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             LEYENDA / CONTROLES DE SEGURIDAD
+        ══════════════════════════════════════════ -->
+        <mxCell id="leyenda_p1" value="CONTROLES DE SEGURIDAD IMPLEMENTADOS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=11;fontStyle=1;fontColor=#1E3A5F;" parent="1" vertex="1">
+          <mxGeometry x="40" y="555" width="1200" height="25" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ctrl1" value="🔐 TLS 1.3 en tránsito&#xa;Toda comunicación entre zonas&#xa;cifrada con TLS 1.3 + Perfect&#xa;Forward Secrecy (PFS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="40" y="590" width="180" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ctrl2" value="🛡 IPS Inline (x2)&#xa;Snort/Suricata en modo&#xa;prevención. Bloquea fuerza&#xa;bruta, SQLi, XSS, escaneos&#xa;de puertos en tiempo real" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;strokeWidth=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="235" y="590" width="180" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ctrl3" value="🔒 AES-256 en reposo&#xa;Cifrado Transparente de BD&#xa;(TDE). Volúmenes cifrados.&#xa;Claves gestionadas por HSM&#xa;dedicado fuera del servidor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="430" y="590" width="180" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ctrl4" value="🏗 Segmentación VLAN&#xa;VLAN 10: Servidores DMZ&#xa;VLAN 20: LAN Interna&#xa;VLAN 30: Gestión/Admin&#xa;Sin comunicación L2 entre VLANs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="625" y="590" width="180" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ctrl5" value="📋 Principio Menor Privilegio&#xa;NGFW: DENY ALL por defecto.&#xa;Solo puertos explícitamente&#xa;requeridos. Reglas revisadas&#xa;conforme ISO 27001 A.9.4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;strokeWidth=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="820" y="590" width="180" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ctrl6" value="📡 SIEM / Monitoreo&#xa;Logs centralizados (Wazuh/&#xa;Elastic SIEM). Alertas en&#xa;tiempo real. Correlación de&#xa;eventos de seguridad 24/7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF1F2;strokeColor=#E11D48;strokeWidth=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="1015" y="590" width="180" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Nota ISO -->
+        <mxCell id="iso_note" value="📌 Diseño alineado a ISO/IEC 27001:2022 — Control A.13 Seguridad de las comunicaciones / Control A.10 Criptografía / Control A.9 Control de acceso" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontStyle=2;fontColor=#374151;fillColor=#F9FAFB;strokeColor=#9CA3AF;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="695" width="1355" height="25" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PLANO 2: MATRIZ DE REDUNDANCIA ELÉCTRICA Y MECANISMOS DE FAILOVER
+       Sección 4.2.2 — Contexto Ecuador 2026 / EMELNORTE
+  ═══════════════════════════════════════════════════════════ -->
+  <diagram id="plano2-electrico" name="Plano 2 — Redundancia Eléctrica">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ══ MARCA DE AGUA (reemplazar con tus datos reales) ══ -->
+        <mxCell id="watermark2" value="NOMBRES COMPLETOS APELLIDOS&#xa;CÉDULA: 000-000-000-0&#xa;FECHA: 08/06/2026&#xa;AUDITORÍA INFORMÁTICA" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=28;fontStyle=1;fontColor=#CCCCCC;opacity=15;rotation=-30;" parent="1" vertex="1">
+          <mxGeometry x="400" y="280" width="800" height="300" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ TÍTULO PRINCIPAL ══ -->
+        <mxCell id="titulo_p2" value="PLANO 2: MATRIZ DE REDUNDANCIA ELÉCTRICA Y MECANISMOS DE FAILOVER&#xa;Data Center Institucional — Ecuador 2026 | Racionamientos EMELNORTE | Sin Punto Único de Fallo (SPOF)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;fontColor=#78350F;fillColor=#FEF9C3;strokeColor=#D97706;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="20" width="1560" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ LEYENDA DE CAMINOS ══ -->
+        <mxCell id="ley_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="80" width="380" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ley_title2" value="LEYENDA DE CAMINOS ELÉCTRICOS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="85" width="360" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="ley_cA" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563EB;strokeWidth=5;entryX=0;entryY=0.5;" parent="1" vertex="1" edge="1">
+          <mxGeometry x="60" y="118" width="80" height="20" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="118"/>
+              <mxPoint x="145" y="118"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ley_cA_txt" value="CAMINO A — Red Pública + UPS-A (alimentación principal)" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;fontColor=#1D4ED8;" parent="1" vertex="1">
+          <mxGeometry x="155" y="109" width="260" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="ley_cB" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#DC2626;strokeWidth=5;dashed=1;" parent="1" vertex="1" edge="1">
+          <mxGeometry x="60" y="138" width="80" height="20" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="138"/>
+              <mxPoint x="145" y="138"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ley_cB_txt" value="CAMINO B — Generador Diésel + UPS-B (failover / respaldo)" style="text;html=1;align=left;verticalAlign=middle;fontSize=9;fontColor=#B91C1C;" parent="1" vertex="1">
+          <mxGeometry x="155" y="129" width="260" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Contexto Ecuador -->
+        <mxCell id="contexto_ec" value="⚡ CONTEXTO ECUADOR 2026&#xa;Racionamientos EMELNORTE: 8-12h/día&#xa;Déficit hídrico → cortes programados&#xa;Tiempo conmutación ATS: &lt; 10 segundos&#xa;Autonomía mínima requerida: 8 horas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;strokeWidth=2;fontSize=9;align=left;spacingLeft=8;fontColor=#7F1D1D;" parent="1" vertex="1">
+          <mxGeometry x="440" y="80" width="260" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Norma Uptime Institute -->
+        <mxCell id="uptime_note" value="📋 Diseño Tier III — Uptime Institute&#xa;Disponibilidad: 99.982%&#xa;N+1 en todos los sistemas críticos&#xa;Mantenimiento sin corte de servicio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;strokeWidth=1;fontSize=9;align=left;spacingLeft=8;fontColor=#1E3A5F;" parent="1" vertex="1">
+          <mxGeometry x="720" y="80" width="220" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             FUENTES DE ENERGÍA (NIVEL 1)
+        ══════════════════════════════════════════ -->
+
+        <!-- Red Pública EMELNORTE -->
+        <mxCell id="red_publica" value="⚡ RED ELÉCTRICA PÚBLICA&#xa;EMELNORTE / CNT&#xa;&#xa;• 110/220V AC&#xa;• Sujeta a racionamientos&#xa;• Medidor principal&#xa;• Tablero de distribución&#xa;  general (TDG)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#1D4ED8;strokeWidth=3;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="40" y="210" width="200" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- Generador Diésel -->
+        <mxCell id="generador" value="🔧 GENERADOR DIÉSEL&#xa;(Camino B — Respaldo)&#xa;&#xa;• 150 kVA / 120 kW&#xa;• Arranque automático&#xa;  en &lt; 10 segundos&#xa;• Tanque: 500L diésel&#xa;  (autonomía 24h)&#xa;• Prueba semanal&#xa;  automatizada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=3;fontSize=9;align=left;spacingLeft=8;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="420" width="200" height="190" as="geometry"/>
+        </mxCell>
+
+        <!-- Flecha Camino A: Red → ATS -->
+        <mxCell id="arrow_A_red_ats" value="CAMINO A" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563EB;strokeWidth=5;fontSize=9;fontColor=#1D4ED8;fontStyle=1;" parent="1" source="red_publica" target="ats_box" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Flecha Camino B: Generador → ATS -->
+        <mxCell id="arrow_B_gen_ats" value="CAMINO B" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#DC2626;strokeWidth=5;dashed=1;fontSize=9;fontColor=#B91C1C;fontStyle=1;" parent="1" source="generador" target="ats_box" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             ATS — TRANSFERENCIA AUTOMÁTICA
+        ══════════════════════════════════════════ -->
+        <mxCell id="ats_box" value="⚙ ATS&#xa;(Automatic Transfer Switch)&#xa;Transferencia Automática&#xa;&#xa;LÓGICA DE CONMUTACIÓN:&#xa;1. Monitor tensión Red Pública&#xa;2. Si V &lt; 95% → FALLO detectado&#xa;3. Señal arranque → Generador&#xa;4. Espera estabilización (8s)&#xa;5. Conmuta a Generador (Cam. B)&#xa;6. Al restaurar red: retransf. suave&#xa;&#xa;Tiempo total: &lt; 10 segundos&#xa;SIN INTERRUPCIÓN para UPS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF9C3;strokeColor=#CA8A04;strokeWidth=3;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="300" y="270" width="230" height="290" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ FLECHA ATS → UPS (ambos caminos se separan aquí) ══ -->
+        <mxCell id="arrow_ats_upsA" value="CAMINO A&#xa;(Normal)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563EB;strokeWidth=5;fontSize=8;fontColor=#1D4ED8;fontStyle=1;" parent="1" source="ats_box" target="ups_a" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="330"/>
+              <mxPoint x="590" y="295"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow_ats_upsB" value="CAMINO B&#xa;(Failover)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#DC2626;strokeWidth=5;dashed=1;fontSize=8;fontColor=#B91C1C;fontStyle=1;" parent="1" source="ats_box" target="ups_b" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="450"/>
+              <mxPoint x="590" y="510"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             UPS N+1 EN PARALELO (dos unidades)
+        ══════════════════════════════════════════ -->
+        <mxCell id="ups_zona" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="560" y="200" width="260" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="ups_zona_label" value="SISTEMA UPS N+1&#xa;(Dos unidades en paralelo — sin SPOF)" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontSize=10;fontStyle=1;fontColor=#166534;" parent="1" vertex="1">
+          <mxGeometry x="565" y="205" width="250" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ups_a" value="🔋 UPS-A&#xa;(Camino A — Principal)&#xa;&#xa;• 80 kVA online doble conv.&#xa;• Bat: 15 min a plena carga&#xa;• Conmuta a gen. sin corte&#xa;• Monitor SNMP&#xa;• Rectificador + Inversor&#xa;• Bypass estático interno" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#2563EB;strokeWidth=2;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="575" y="245" width="230" height="175" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ups_b" value="🔋 UPS-B&#xa;(Camino B — Respaldo N+1)&#xa;&#xa;• 80 kVA online doble conv.&#xa;• Igual capacidad que UPS-A&#xa;• Alimenta si UPS-A falla&#xa;• Monitor SNMP&#xa;• Bypass estático interno&#xa;• Sin SPOF compartido" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=2;dashed=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="575" y="450" width="230" height="145" as="geometry"/>
+        </mxCell>
+
+        <!-- Nota N+1 -->
+        <mxCell id="nota_n1" value="N+1: Si UPS-A falla, UPS-B&#xa;asume toda la carga sin&#xa;interrupción. Breakers&#xa;independientes — sin SPOF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#15803D;strokeWidth=1;fontSize=8;fontStyle=2;" parent="1" vertex="1">
+          <mxGeometry x="565" y="610" width="240" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ FLECHAS UPS → PDU ══ -->
+        <mxCell id="arrow_upsA_pduA" value="CAMINO A" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563EB;strokeWidth=5;fontSize=8;fontColor=#1D4ED8;fontStyle=1;" parent="1" source="ups_a" target="pdu_a" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow_upsB_pduB" value="CAMINO B" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#DC2626;strokeWidth=5;dashed=1;fontSize=8;fontColor=#B91C1C;fontStyle=1;" parent="1" source="ups_b" target="pdu_b" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             PDU — UNIDADES DE DISTRIBUCIÓN DE ENERGÍA
+        ══════════════════════════════════════════ -->
+        <mxCell id="pdu_a" value="⚡ PDU-A&#xa;(Power Distribution Unit)&#xa;Camino A — Principal&#xa;&#xa;Breakers independientes&#xa;Monitoreo por toma" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#2563EB;strokeWidth=2;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="880" y="245" width="190" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pdu_b" value="⚡ PDU-B&#xa;(Power Distribution Unit)&#xa;Camino B — Respaldo&#xa;&#xa;Breakers independientes&#xa;Monitoreo por toma" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=2;dashed=1;fontSize=9;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="880" y="450" width="190" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- ══ FLECHAS PDU → RACKS ══ -->
+        <mxCell id="arrow_pduA_rack" value="CAMINO A → PSU-A" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563EB;strokeWidth=5;fontSize=8;fontColor=#1D4ED8;fontStyle=1;" parent="1" source="pdu_a" target="rack_main" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arrow_pduB_rack" value="CAMINO B → PSU-B" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#DC2626;strokeWidth=5;dashed=1;fontSize=8;fontColor=#B91C1C;fontStyle=1;" parent="1" source="pdu_b" target="rack_main" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             RACK DE SERVIDORES (FUENTES DUALES)
+        ══════════════════════════════════════════ -->
+        <mxCell id="rack_main" value="🖥 RACK DE SERVIDORES&#xa;Centro de Cómputo Institucional&#xa;&#xa;SERVIDOR WEB (DMZ):&#xa;  PSU-A ← Camino A (AZUL)&#xa;  PSU-B ← Camino B (ROJO)&#xa;&#xa;SERVIDOR BD ACADÉMICA:&#xa;  PSU-A ← Camino A (AZUL)&#xa;  PSU-B ← Camino B (ROJO)&#xa;&#xa;SWITCHES / NGFW / IPS:&#xa;  PSU-A ← Camino A&#xa;  PSU-B ← Camino B&#xa;&#xa;⚡ FUENTES DUALES en todos&#xa;los equipos críticos&#xa;&#xa;Si PSU-A falla → PSU-B&#xa;asume SIN interrupción" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#374151;strokeWidth=3;fontSize=9;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="1130" y="230" width="250" height="350" as="geometry"/>
+        </mxCell>
+
+        <!-- ══════════════════════════════════════════
+             ANÁLISIS SPOF
+        ══════════════════════════════════════════ -->
+        <mxCell id="spof_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="40" y="640" width="1330" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="spof_title" value="VERIFICACIÓN DE ELIMINACIÓN DE SPOF (Single Point of Failure)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=11;fontStyle=1;fontColor=#166534;" parent="1" vertex="1">
+          <mxGeometry x="50" y="645" width="1310" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="spof1" value="✅ Red pública falla&#xa;→ ATS activa generador (Cam. B)&#xa;→ Sin corte de servicio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=1;fontSize=8;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="50" y="675" width="220" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="spof2" value="✅ UPS-A falla&#xa;→ UPS-B (N+1) asume carga&#xa;→ PDU-B alimenta racks&#xa;→ Sin corte de servicio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=1;fontSize=8;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="285" y="675" width="220" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="spof3" value="✅ PSU-A del servidor falla&#xa;→ PSU-B del mismo servidor&#xa;  asume sin reinicio&#xa;→ Sin corte de servicio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=1;fontSize=8;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="520" y="675" width="220" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="spof4" value="✅ PDU-A falla&#xa;→ PDU-B alimenta PSU-B&#xa;→ Equipos siguen operando&#xa;→ Sin corte de servicio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=1;fontSize=8;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="755" y="675" width="220" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="spof5" value="✅ Generador falla (Cam. B)&#xa;→ UPS-A mantiene carga&#xa;  (15 min batería)&#xa;→ Alerta para restaurar red" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=1;fontSize=8;align=left;spacingLeft=6;" parent="1" vertex="1">
+          <mxGeometry x="990" y="675" width="220" height="75" as="geometry"/>
+        </mxCell>
+
+        <!-- Nota final Uptime -->
+        <mxCell id="nota_final" value="📌 Arquitectura certificable como Uptime Institute Tier III — Disponibilidad 99.982% | Sin SPOF demostrado en los 5 escenarios críticos | Contexto: Racionamientos EMELNORTE Ecuador 2026" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=9;fontStyle=2;fontColor=#374151;fillColor=#F9FAFB;strokeColor=#9CA3AF;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="770" width="1330" height="25" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>
