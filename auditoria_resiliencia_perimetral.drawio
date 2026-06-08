@@ -26,7 +26,9 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="arrow_inet_ngfw" edge="1" parent="1" source="internet" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2563EB;strokeWidth=3;fontSize=8;fontColor=#1D4ED8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="ngfw_box" value="Todo el tráfico&#xa;entra por aquí">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" x="-1" y="-30" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="ngfw_zone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#F97316;strokeWidth=3;" value="" vertex="1">
           <mxGeometry height="440" width="230" x="260" y="90" as="geometry" />
@@ -125,7 +127,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="plano2-electrico" name="Plano 2 — Redundancia Eléctrica">
-    <mxGraphModel dx="1884" dy="872" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2216" dy="1026" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
